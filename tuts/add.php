@@ -1,4 +1,9 @@
 <?php
+
+    #1. connect to database
+    #2. check connection
+    include('config/db_connect.php');
+
     $email = $title = $ingredients = '';
     $error = array('email'=>'', 'title'=>'', 'ingredients'=>'');
     # 1. Check if data has been received by the database
@@ -55,10 +60,25 @@
             // echo 'errors in the form!'; 
         }else {
             // echo 'form is valid.';
-            header('Location: index.php');
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $title = mysqli_real_escape_string($conn, $_POST['title']);
+            $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
+
+            // Create sql table
+            $sql = "INSERT INTO pizzas(title,email,ingredients) 
+                    VALUES('$title', '$email', '$ingredients')";
+
+            if(mysqli_query($conn, $sql)){
+                // success
+                header('Location: index.php');
+            } else {
+                // error
+                echo('query error: ' . mysqli_connect_error($conn));
+            }
+            
         }
 
-    } // end of POST check
+    } // end of POST check 
 
 ?>
 
