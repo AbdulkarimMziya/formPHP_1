@@ -1,25 +1,15 @@
-<!-- <?php
-
-    # Data Types
-    $stringOne = 'my email is ';
-    $stringTwo = 'abc123@gmail.com';
-    
-    // String concatination
-    // echo $stringOne.$stringTwo; 
-    $name = 'Joe';
-    // echo 'My name is '. $name;
-?> -->
-
 <?php
     /***** How to connect to the Database *****/
 
     #1. connect to database
-    $conn = mysqli_connect('localhost','root','','ninja_pizza');  // ('host', 'username', 'password','DB_name')
+    // $conn = mysqli_connect('localhost','root','','ninja_pizza');  // ('host', 'username', 'password','DB_name')
 
     #2. check connection
-    if(!$conn){
-        echo 'Connection error: ' . mysqli_connect_error();
-    }
+    // if(!$conn){
+    //     echo 'Connection error: ' . mysqli_connect_error();
+    // }
+
+    include('config/db_connect.php');
 
     #3. Write query for all pizzas
     $sql = 'SELECT title,ingredients,id FROM pizzas ORDER BY created_at';
@@ -82,6 +72,9 @@
             </div>
         </div>
     <?php include('templates/footer.php'); ?>
+    
+
+</html>
     
 
 </html>
