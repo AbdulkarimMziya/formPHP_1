@@ -50,7 +50,9 @@
             } // Checks if input contains any upper,lower and seperated by comma
         }
 
-        # 2. Redirect user if form is validated successfully.
+        /****  INSERTION AND SAVING DATA INTO THE DATABASE ****/
+        
+        # 2. Insert data to Database and redirect user if form is validated successfully.
 
         // The array_filter() function passes each value of the input array to the callback function. 
         // If the callback function returns true, the current value from input is returned into the result array. 
@@ -77,7 +79,6 @@
             }
             
         }
-
     } // end of POST check 
 
 ?>
