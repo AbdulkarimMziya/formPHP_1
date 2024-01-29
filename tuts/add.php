@@ -1,4 +1,9 @@
 <?php
+
+    #1. connect to database
+    #2. check connection
+    include('config/db_connect.php');
+
     $email = $title = $ingredients = '';
     $error = array('email'=>'', 'title'=>'', 'ingredients'=>'');
     # 1. Check if data has been received by the database
@@ -45,7 +50,9 @@
             } // Checks if input contains any upper,lower and seperated by comma
         }
 
-        # 2. Redirect user if form is validated successfully.
+        /****  INSERTION AND SAVING DATA INTO THE DATABASE ****/
+        
+        # 2. Insert data to Database and redirect user if form is validated successfully.
 
         // The array_filter() function passes each value of the input array to the callback function. 
         // If the callback function returns true, the current value from input is returned into the result array. 
@@ -55,10 +62,24 @@
             // echo 'errors in the form!'; 
         }else {
             // echo 'form is valid.';
-            header('Location: index.php');
-        }
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $title = mysqli_real_escape_string($conn, $_POST['title']);
+            $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
 
-    } // end of POST check
+            // Create sql table
+            $sql = "INSERT INTO pizzas(title,email,ingredients) 
+                    VALUES('$title', '$email', '$ingredients')";
+
+            if(mysqli_query($conn, $sql)){
+                // success
+                header('Location: index.php');
+            } else {
+                // error
+                echo('query error: ' . mysqli_connect_error($conn));
+            }
+            
+        }
+    } // end of POST check 
 
 ?>
 
