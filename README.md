@@ -12,7 +12,7 @@ To set up and run the project locally, follow these steps:
 
 2. **Clone the Repository**: Clone this repository to your local machine using Git:
     ```bash
-    git clone https://github.com/your-username/pizza-ordering-system.git
+    git clone https://github.com/AbdulkarimMziya/formPHP_1.git
     ```
 
 3. **Start Apache and MySQL Servers**: Launch the XAMPP control panel and start the Apache and MySQL servers.
@@ -31,5 +31,24 @@ To set up and run the project locally, follow these steps:
 - Add/create pizzas 
 - Delete Pizza info
 
-## File Structure
+## Dependencies
+
+- XAMPP: Apache, MySQL, PHP
+- Web Browser (Chrome, Firefox, etc.)
+
+## Technologies Used
+
+- PHP
+- MySQL
+- HTML
+- CSS
+- JavaScript
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request to improve the project.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
