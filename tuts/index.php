@@ -71,8 +71,14 @@
                                     </ul>
                                 </div>
                             </div>            
+                             <!-- ********** Getting a Single Record ********** -->
+                            
+                            <!-- To have acces to a individual record, since we are in a loop we can send the data of that indivdual pizza
+                                 1. Use a query string to get the id
+                                 2. then check/verify Get request in detail.php file.
+                             -->
                             <div class="card-action right-align">
-                                <a class="brand-text" href="#">more info</a>
+                                <a class="brand-text" href="details.php?id=<?php echo $pizza['id'] ?>">more info</a>
                             </div>
                         </div> 
                     </div>
